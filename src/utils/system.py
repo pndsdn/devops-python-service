@@ -29,7 +29,7 @@ def get_system_info() -> System:
 def get_cpu_info() -> CPU:
     cpu_usage_per_core: List[Core] = []
     for i, percentage in enumerate(psutil.cpu_percent(percpu=True, interval=1)):
-        cpu_usage_per_core.append(Core(core=i, percentage=percentage))
+        cpu_usage_per_core.append(Core(core=i, percentage=f"{percentage}%"))
     cpufreq = psutil.cpu_freq()
     return CPU(
         physical_cores=psutil.cpu_count(logical=False),

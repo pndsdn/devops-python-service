@@ -13,6 +13,13 @@ router = APIRouter()
 
 @router.post("/info", response_model=SystemInfo)
 async def system_info(filters: List[Filter]):
+    if filters == []:
+        return SystemInfo(
+            system=get_system_info(),
+            cpu=get_cpu_info(),
+            memory=get_memory_info(),
+            disk=get_disk_usage()
+        )
     filters = set(filters)
     return SystemInfo(
         system=None if Filter.system not in filters else get_system_info(),

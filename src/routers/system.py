@@ -8,7 +8,7 @@ from utils.system import (get_system_info,
                           get_memory_info,
                           get_disk_usage)
 
-router = APIRouter
+router = APIRouter()
 
 
 @router.post("/info", response_model=SystemInfo)

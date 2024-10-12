@@ -27,9 +27,9 @@ class Core(BaseModel):
 class CPU(BaseModel):
     physical_cores: int
     total_cores: int
-    max_freq: int
-    min_freq: int
-    current_freq: int
+    max_freq: str
+    min_freq: str
+    current_freq: str
     cpu_usage_per_core: List[Core]
     total_cpu_usage: str
 
